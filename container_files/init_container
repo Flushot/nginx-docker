@@ -1,0 +1,5 @@
+#!/bin/sh
+# This is a Docker container init script and should not be run directly!
+export DOCKER_HOST_IP="$(ip route | awk "/default/ { print \$3 }")"
+consul agent -server -bootstrap-expect 1 -data-dir /tmp/consul &
+service nginx start

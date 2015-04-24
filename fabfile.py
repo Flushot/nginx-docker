@@ -45,7 +45,7 @@ def start():
     stop_if_running()
 
     # Start new container
-    local('docker run --name %s -d -p 80:80 %s' % (CONTAINER_NAME, IMAGE_NAME))
+    local('docker run --name %s -d -p 80:80/tcp %s' % (CONTAINER_NAME, IMAGE_NAME))
 
 
 def stop_if_running():
